@@ -31,6 +31,7 @@ const Jobs = () => {
       customStyle={{
         backgroundColor: "primary.light",
         paddingTop: 3,
+        color: "black",
       }}
     >
       <Typography variant="h4" align="center">
