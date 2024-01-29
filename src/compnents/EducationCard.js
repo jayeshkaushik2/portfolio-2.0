@@ -1,23 +1,17 @@
-import { Box, Grid, Link, Typography } from "@mui/material";
+import { Box, Link, Typography } from "@mui/material";
 import React from "react";
 
-const JobCard = ({ job }) => {
+const EducationCard = ({ education }) => {
   return (
     <Box
       sx={{
         backgroundColor: "secondary.main",
-        minHeight: "17rem",
-        maxHeight: "17rem",
-        minWidth: "24rem",
-        maxWidth: "20rem",
-        borderRadius: "5%",
         boxShadow: "4px 4px 8px rgba(0, 0, 0, 0.1)",
+        minHeight: "10rem",
+        maxHeight: "fit-content",
+        width: "90%",
+        minWidth: "15rem",
         margin: 3,
-        transition: "transform 0.3s ease-out",
-        "&:hover": {
-          cursor: "pointer",
-          transform: "scale(1.05)",
-        },
       }}
     >
       <Box
@@ -37,7 +31,7 @@ const JobCard = ({ job }) => {
           align="center"
           variant="h5"
         >
-          {job?.company}
+          {education?.school_name}
         </Typography>
 
         <Typography
@@ -48,7 +42,7 @@ const JobCard = ({ job }) => {
           align="center"
           variant="h6"
         >
-          {job?.job_title}
+          {education?.course}
         </Typography>
 
         <Typography
@@ -58,16 +52,7 @@ const JobCard = ({ job }) => {
           m={1}
           align="center"
         >
-          {job?.description}{" "}
-          <Link
-            variant="body2"
-            sx={{
-              color: "textPrimary.main",
-            }}
-            href="https://google.com"
-          >
-            Learn More
-          </Link>
+          {education?.field}{" "}
         </Typography>
       </Box>
       <Box>
@@ -79,11 +64,12 @@ const JobCard = ({ job }) => {
           m={1}
           align="center"
         >
-          {job?.start_date} - {job?.is_present ? "Present" : job?.end_date}
+          {education?.start_date} -{" "}
+          {education?.is_present ? "Present" : education?.end_date}
         </Typography>
       </Box>
     </Box>
   );
 };
 
-export default JobCard;
+export default EducationCard;

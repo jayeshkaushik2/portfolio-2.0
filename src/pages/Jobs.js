@@ -23,18 +23,26 @@ const data = [
       "Working as a senior full stack web developer fueled by a passion for innovation, problem-solving, and the relentless pursuit.",
     job_title: "Full Stack Developer",
   },
+  {
+    company: "Sigroo Technologies",
+    start_date: "22 mar 2021",
+    end_date: "",
+    is_present: true,
+    description:
+      "Working as a senior full stack web developer fueled by a passion for innovation, problem-solving, and the relentless pursuit.",
+    job_title: "Software Engineer",
+  },
 ];
 
 const Jobs = () => {
   return (
     <BaseLayout
       customStyle={{
-        backgroundColor: "primary.light",
         paddingTop: 3,
         color: "black",
       }}
     >
-      <Typography variant="h4" align="center">
+      <Typography variant="h4" align="center" color="textPrimary.main">
         Jobs
       </Typography>
       <Grid

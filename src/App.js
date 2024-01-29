@@ -13,7 +13,7 @@ const theme = createTheme({
       dark: "#000000",
     },
     secondary: {
-      main: "#78909c",
+      main: "#212121",
       dark: "",
     },
     textPrimary: {

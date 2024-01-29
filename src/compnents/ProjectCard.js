@@ -5,7 +5,7 @@ const ProjectCart = ({ project }) => {
   return (
     <Box
       sx={{
-        backgroundColor: "black",
+        backgroundColor: "secondary.main",
         minHeight: "17rem",
         maxHeight: "33rem",
         minWidth: "24rem",
