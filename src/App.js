@@ -7,22 +7,19 @@ import { Box } from "@mui/material";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#000000",
-      light: "#fafafa",
-      mainLight: "#bdbdbd",
-      dark: "#000000",
+      light: "#424242",
+      main: "#212121",
     },
     secondary: {
-      main: "#212121",
-      dark: "",
+      // light: "#9fa8da",
+      // main: "#3f51b5",
+      // dark: "#303f9f",
+      main: "#fdd835",
+      dark: "#fbc02d",
     },
-    textPrimary: {
-      main: "#ff9800",
-      dark: "#fb8c00",
-    },
-    textSecondary: {
-      main: "#fafafa",
-      dark: "#bdbdbd",
+    textColor: {
+      light: "#c3c3c3",
+      main: "white",
     },
   },
 });

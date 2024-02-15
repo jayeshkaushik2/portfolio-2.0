@@ -5,15 +5,17 @@ import Jobs from "./Jobs";
 import Projects from "./projects";
 import { Divider } from "@mui/material";
 import Educations from "./Educations";
+import IntroHeader from "../compnents/IntroHeader";
 
 const Home = () => {
   return (
     <BaseLayout>
-      <Header />
-      <Jobs />
+      <IntroHeader />
+      {/* <Header /> */}
+      {/* <Jobs />
       <Divider />
       <Projects />
-      <Educations />
+      <Educations /> */}
     </BaseLayout>
   );
 };
