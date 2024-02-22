@@ -6,11 +6,15 @@ import Projects from "./projects";
 import { Divider } from "@mui/material";
 import Educations from "./Educations";
 import IntroHeader from "../compnents/IntroHeader";
+import Specialization from "../compnents/Specialization";
+import Experience from "../compnents/Experience";
 
 const Home = () => {
   return (
     <BaseLayout>
       <IntroHeader />
+      <Specialization />
+      <Experience />
       {/* <Header /> */}
       {/* <Jobs />
       <Divider />

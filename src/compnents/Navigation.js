@@ -154,6 +154,7 @@ export default function Navigation() {
             noWrap
             component="div"
             sx={{ display: { xs: "none", sm: "block" } }}
+            fontWeight={"600"}
           >
             {/* {process.env.REACT_APP_ADMIN_NAME} */}
             JAYESHKAUSHIK

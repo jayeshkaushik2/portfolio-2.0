@@ -20,6 +20,7 @@ const theme = createTheme({
     textColor: {
       light: "#c3c3c3",
       main: "white",
+      dark: "#616161",
     },
   },
 });
