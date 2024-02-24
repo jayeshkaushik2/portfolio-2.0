@@ -9,6 +9,7 @@ import IntroHeader from "../compnents/IntroHeader";
 import Specialization from "../compnents/Specialization";
 import Experience from "../compnents/Experience";
 import BreafAndIdea from "../compnents/BreafAndIdea";
+import SelectedProjects from "../compnents/SelectedProjects";
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       <Specialization />
       <Experience />
       <BreafAndIdea />
+      <SelectedProjects />
       {/* <Header /> */}
       {/* <Jobs />
       <Divider />
