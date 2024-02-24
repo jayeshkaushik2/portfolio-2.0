@@ -8,6 +8,7 @@ import Educations from "./Educations";
 import IntroHeader from "../compnents/IntroHeader";
 import Specialization from "../compnents/Specialization";
 import Experience from "../compnents/Experience";
+import BreafAndIdea from "../compnents/BreafAndIdea";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <IntroHeader />
       <Specialization />
       <Experience />
+      <BreafAndIdea />
       {/* <Header /> */}
       {/* <Jobs />
       <Divider />
