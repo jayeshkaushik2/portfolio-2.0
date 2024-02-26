@@ -13,6 +13,7 @@ import SelectedProjects from "../compnents/SelectedProjects";
 import Testimonies from "../compnents/Testimonies";
 import Companies from "../compnents/Companies";
 import Technologies from "../compnents/Technologies";
+import Contact from "../compnents/Contact";
 
 const Home = () => {
   return (
@@ -25,6 +26,7 @@ const Home = () => {
       <Testimonies />
       <Companies />
       <Technologies />
+      <Contact />
       {/* <Header /> */}
       {/* <Jobs />
       <Divider />
