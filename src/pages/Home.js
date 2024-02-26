@@ -11,6 +11,7 @@ import Experience from "../compnents/Experience";
 import BreafAndIdea from "../compnents/BreafAndIdea";
 import SelectedProjects from "../compnents/SelectedProjects";
 import Testimonies from "../compnents/Testimonies";
+import Companies from "../compnents/Companies";
 
 const Home = () => {
   return (
@@ -21,6 +22,7 @@ const Home = () => {
       <BreafAndIdea />
       <SelectedProjects />
       <Testimonies />
+      <Companies />
       {/* <Header /> */}
       {/* <Jobs />
       <Divider />

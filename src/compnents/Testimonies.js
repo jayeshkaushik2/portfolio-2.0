@@ -1,7 +1,7 @@
 import React from "react";
 import BaseLayout from "./layouts/BaseLayout";
 import CommentIcon from "@mui/icons-material/Comment";
-import { Avatar, Box, Stack, Typography } from "@mui/material";
+import { Avatar, Box, Divider, Stack, Typography } from "@mui/material";
 
 const Testimonies = () => {
   return (
@@ -20,6 +20,7 @@ const Testimonies = () => {
         <TestimonialIntro />
         <Testimoniales />
       </Stack>
+      <Divider sx={{ backgroundColor: "textColor.dark" }} />
     </BaseLayout>
   );
 };
