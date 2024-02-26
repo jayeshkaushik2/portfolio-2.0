@@ -12,6 +12,7 @@ import BreafAndIdea from "../compnents/BreafAndIdea";
 import SelectedProjects from "../compnents/SelectedProjects";
 import Testimonies from "../compnents/Testimonies";
 import Companies from "../compnents/Companies";
+import Technologies from "../compnents/Technologies";
 
 const Home = () => {
   return (
@@ -23,6 +24,7 @@ const Home = () => {
       <SelectedProjects />
       <Testimonies />
       <Companies />
+      <Technologies />
       {/* <Header /> */}
       {/* <Jobs />
       <Divider />

@@ -27,6 +27,8 @@ const Companies = () => {
             flexDirection: "row",
             justifyContent: "space-evenly",
             alignItems: "center",
+            width: "100%",
+            flexWrap: "wrap",
           }}
         >
           <KeyboardArrowLeftIcon
