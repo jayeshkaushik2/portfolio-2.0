@@ -1,4 +1,12 @@
-import { Box, Button, Divider, Grid, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Divider,
+  Grid,
+  Stack,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import React from "react";
 import BaseLayout from "./layouts/BaseLayout";
 import { RoundBtn } from "./RoundBtn";
@@ -44,16 +52,20 @@ let selectedProjects = [
 ];
 
 const SelectedProjects = () => {
+  const isSmallScreen = !useMediaQuery("(max-width:600px)");
   return (
     <BaseLayout
       customStyle={{ backgroundColor: "primary.main", color: "white" }}
     >
-      <Stack padding={10}>
+      <Stack padding={isSmallScreen ? 10 : 4}>
         <Grid container spacing={{ xs: 4, md: 4 }} columns={{ md: 12 }}>
           <Grid item xs={2} sm={4} md={4} key={1}>
-            <SelectedProjectIntro />
+            <SelectedProjectIntro isSmallScreen={isSmallScreen} />
           </Grid>
-          <ProjectUi selectedProjects={selectedProjects} />
+          <ProjectUi
+            selectedProjects={selectedProjects}
+            isSmallScreen={isSmallScreen}
+          />
         </Grid>
       </Stack>
       <Divider sx={{ backgroundColor: "textColor.dark" }} />
@@ -61,7 +73,7 @@ const SelectedProjects = () => {
   );
 };
 
-const SelectedProjectIntro = () => (
+const SelectedProjectIntro = ({ isSmallScreen }) => (
   <>
     <Typography color={"textColor.light"} sx={{ paddingBottom: 1 }}>
       Portfolio
@@ -88,7 +100,7 @@ const SelectedProjectIntro = () => (
   </>
 );
 
-const ProjectUi = ({ selectedProjects }) => (
+const ProjectUi = ({ selectedProjects, isSmallScreen }) => (
   <>
     {selectedProjects.map((project) => (
       <Grid item xs={2} sm={4} md={4}>
@@ -96,7 +108,7 @@ const ProjectUi = ({ selectedProjects }) => (
           sx={{
             backgroundImage: `url(${project?.images[0].image})`,
             backgroundSize: "cover",
-            Width: "100%",
+            width: "100%",
             height: 350,
             boxShadow: "0px 20px 30px 0px  black inset",
             padding: 4,

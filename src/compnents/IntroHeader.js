@@ -1,4 +1,4 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography, useMediaQuery } from "@mui/material";
 import React from "react";
 import Navigation from "./Navigation";
 import BaseLayout from "./layouts/BaseLayout";
@@ -8,6 +8,8 @@ import { RoundBtn } from "./RoundBtn";
 import PlayArrowRoundedIcon from "@mui/icons-material/PlayArrowRounded";
 
 const IntroHeader = () => {
+  const isSmallScreen = !useMediaQuery("(max-width:600px)");
+
   return (
     <BaseLayout customStyle={{ color: "white" }}>
       <Box
@@ -17,13 +19,22 @@ const IntroHeader = () => {
       >
         <Navigation />
         <Stack
-          sx={{
-            flexDirection: "row",
-            padding: 3,
-            paddingLeft: 10,
-            paddingRight: 10,
-            paddingBottom: 0,
-          }}
+          sx={
+            isSmallScreen
+              ? {
+                  flexDirection: "row",
+                  padding: 3,
+                  paddingLeft: 10,
+                  paddingRight: 10,
+                  paddingBottom: 0,
+                }
+              : {
+                  flexDirection: "column",
+                  paddingLeft: 4,
+                  paddingRight: 4,
+                  paddingBottom: 0,
+                }
+          }
         >
           <Box sx={{ width: "100%" }}>
             <Typography variant="h6" color={"textColor.light"}>
@@ -48,7 +59,11 @@ const IntroHeader = () => {
           <Box>
             <img
               src={`${ProfileImage}`}
-              style={{ minHeight: 100, maxHeight: 600 }}
+              style={
+                isSmallScreen
+                  ? { minHeight: 100, maxHeight: 600 }
+                  : { width: "-webkit-fill-available" }
+              }
             />
           </Box>
         </Stack>

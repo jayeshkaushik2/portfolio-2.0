@@ -1,9 +1,10 @@
 import React from "react";
 import BaseLayout from "./layouts/BaseLayout";
-import { Box, Divider, Stack, Typography } from "@mui/material";
+import { Box, Divider, Stack, Typography, useMediaQuery } from "@mui/material";
 import SpecializationSkills from "./SpecializationSkills";
 
 const Specialization = () => {
+  const isSmallScreen = !useMediaQuery("(max-width:600px)");
   let specializationSkillsData = [
     {
       id: 1,
@@ -35,40 +36,56 @@ const Specialization = () => {
     <BaseLayout
       customStyle={{ backgroundColor: "primary.main", color: "white" }}
     >
-      <Stack padding={10} sx={{ display: "flex", flexDirection: "row" }}>
-        <Box width={"30%"}>
-          <Typography
-            color={"secondary.main"}
-            variant="h1"
-            fontWeight={"510"}
-            fontSize={200}
-            fontStyle={"oblique"}
-          >
-            2+
-          </Typography>
-          <Typography
-            color={"textColor.light"}
-            variant="h6"
-            fontStyle={"oblique"}
-          >
-            Years of
-          </Typography>
-          <Typography
-            color={"textColor.light"}
-            variant="h6"
-            fontStyle={"oblique"}
-          >
-            Working
-          </Typography>
-          <Typography
-            color={"textColor.light"}
-            variant="h6"
-            fontStyle={"oblique"}
-          >
-            Experience
-          </Typography>
+      <Stack
+        padding={isSmallScreen ? 10 : 4}
+        sx={
+          isSmallScreen
+            ? { display: "flex", flexDirection: "row" }
+            : {
+                display: "flex",
+                flexDirection: "column",
+              }
+        }
+      >
+        <Box
+          width={"100%"}
+          paddingBottom={isSmallScreen ? 0 : 4}
+          justifyContent={"center"}
+        >
+          <Box>
+            <Typography
+              color={"secondary.main"}
+              variant="h1"
+              fontWeight={"510"}
+              fontSize={200}
+              fontStyle={"oblique"}
+            >
+              2+
+            </Typography>
+            <Typography
+              color={"textColor.light"}
+              variant="h6"
+              fontStyle={"oblique"}
+            >
+              Years of
+            </Typography>
+            <Typography
+              color={"textColor.light"}
+              variant="h6"
+              fontStyle={"oblique"}
+            >
+              Working
+            </Typography>
+            <Typography
+              color={"textColor.light"}
+              variant="h6"
+              fontStyle={"oblique"}
+            >
+              Experience
+            </Typography>
+          </Box>
         </Box>
-        <Box width={"70%"}>
+        <Box width={isSmallScreen ? "70%" : "100%"}>
           <Skills specializationSkillsData={specializationSkillsData} />
         </Box>
       </Stack>

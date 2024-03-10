@@ -1,6 +1,13 @@
 import React from "react";
 import BaseLayout from "./layouts/BaseLayout";
-import { Box, Divider, Slider, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Divider,
+  Slider,
+  Stack,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 
 const data = {
   title: "Breaf & Idea",
@@ -21,6 +28,7 @@ const data = {
 };
 
 const BreafAndIdea = () => {
+  const isSmallScreen = !useMediaQuery("(max-width:600px)");
   function valuetext(value) {
     return `${value}%`;
   }
@@ -29,28 +37,32 @@ const BreafAndIdea = () => {
       customStyle={{ backgroundColor: "primary.main", color: "white" }}
     >
       <Stack
-        padding={10}
+        padding={isSmallScreen ? 10 : 4}
         sx={{
           display: "flex",
-          flexDirection: "row",
+          flexDirection: isSmallScreen ? "row" : "column",
           justifyContent: "space-between",
         }}
       >
-        <BreafAndIdeaComp />
-        <AboutMeAndSkills skills={data?.skills} valuetext={valuetext} />
+        <BreafAndIdeaComp isSmallScreen={isSmallScreen} />
+        <AboutMeAndSkills
+          skills={data?.skills}
+          valuetext={valuetext}
+          isSmallScreen={isSmallScreen}
+        />
       </Stack>
       <Divider sx={{ backgroundColor: "textColor.dark" }} />
     </BaseLayout>
   );
 };
 
-const BreafAndIdeaComp = () => (
-  <Box width={"45%"}>
+const BreafAndIdeaComp = ({ isSmallScreen }) => (
+  <Box width={isSmallScreen ? "45%" : "100%"}>
     <Typography
       color={"textColor.main"}
       variant="h4"
       fontWeight={"600"}
-      paddingBottom={4}
+      paddingBottom={isSmallScreen ? 4 : 1}
     >
       Breaf & Idea
     </Typography>
@@ -60,59 +72,73 @@ const BreafAndIdeaComp = () => (
       passenger, and transit railroads worldwide.
     </Typography>
     <Box
-      sx={{
-        display: "flex",
-        alignItems: "center",
-        width: "35%",
-        justifyContent: "space-between",
-      }}
+      sx={
+        isSmallScreen
+          ? {}
+          : {
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "flex-start",
+              paddingBottom: 4,
+            }
+      }
+      gap={2}
     >
-      <Typography
-        color={"secondary.main"}
-        variant="h2"
-        fontWeight={"600"}
-        fontStyle={"oblique"}
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          width: isSmallScreen ? "35%" : "fit-content",
+          justifyContent: "space-between",
+        }}
       >
-        21
-      </Typography>
-      <Typography color={"textColor.light"} fontStyle={"oblique"}>
-        COMPLETE <br /> PROJECTS
-      </Typography>
-    </Box>
-    <Box
-      sx={{
-        display: "flex",
-        alignItems: "center",
-        width: "35%",
-        justifyContent: "space-between",
-      }}
-    >
-      <Typography
-        color={"secondary.main"}
-        variant="h2"
-        fontWeight={"600"}
-        fontStyle={"oblique"}
+        <Typography
+          color={"secondary.main"}
+          variant="h2"
+          fontWeight={"600"}
+          fontStyle={"oblique"}
+        >
+          21
+        </Typography>
+        <Typography color={"textColor.light"} fontStyle={"oblique"}>
+          COMPLETE <br /> PROJECTS
+        </Typography>
+      </Box>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          width: isSmallScreen ? "35%" : "fit-content",
+          justifyContent: "space-between",
+        }}
       >
-        32
-      </Typography>
-      <Typography color={"textColor.light"} fontStyle={"oblique"}>
-        SATISFIED <br /> CUSTOMERS
-      </Typography>
+        <Typography
+          color={"secondary.main"}
+          variant="h2"
+          fontWeight={"600"}
+          fontStyle={"oblique"}
+        >
+          32
+        </Typography>
+        <Typography color={"textColor.light"} fontStyle={"oblique"}>
+          SATISFIED <br /> CUSTOMERS
+        </Typography>
+      </Box>
     </Box>
   </Box>
 );
 
-const AboutMeAndSkills = ({ skills, valuetext }) => (
-  <Box width={"45%"}>
+const AboutMeAndSkills = ({ skills, valuetext, isSmallScreen }) => (
+  <Box width={isSmallScreen ? "45%" : "100%"}>
     <Typography
       color={"textColor.main"}
       variant="h4"
       fontWeight={"600"}
-      paddingBottom={4}
+      paddingBottom={isSmallScreen ? 4 : 1}
     >
       I'm Using Top Leading Methods In my Work.
     </Typography>
-    <Typography color={"textColor.light"} paddingBottom={4}>
+    <Typography color={"textColor.light"} paddingBottom={isSmallScreen ? 4 : 1}>
       Loram Maintenance of Way, Inc. is a railroad maintenance equipment and
       services provider. Loram provides track maintenance services to freight,
       passenger, and transit railroads worldwide.

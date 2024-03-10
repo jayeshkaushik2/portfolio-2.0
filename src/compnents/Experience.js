@@ -1,14 +1,15 @@
 import React from "react";
 import BaseLayout from "./layouts/BaseLayout";
-import { Box, Divider, Stack, Typography } from "@mui/material";
+import { Box, Divider, Stack, Typography, useMediaQuery } from "@mui/material";
 import { RoundBtn } from "./RoundBtn";
 
 const Experience = () => {
+  const isSmallScreen = !useMediaQuery("(max-width:600px)");
   return (
     <BaseLayout
       customStyle={{ backgroundColor: "primary.main", color: "white" }}
     >
-      <Stack padding={10}>
+      <Stack padding={isSmallScreen ? 10 : 4}>
         <Box
           sx={{
             width: "100%",
@@ -27,9 +28,9 @@ const Experience = () => {
             AlignIcon="left"
             sx={{ marginTop: 4 }}
           />
-          <ExperienceRow />
-          <ExperienceRow />
-          <ExperienceRow />
+          <ExperienceRow isSmallScreen={isSmallScreen} />
+          <ExperienceRow isSmallScreen={isSmallScreen} />
+          <ExperienceRow isSmallScreen={isSmallScreen} isLast={true} />
         </Box>
       </Stack>
       <Divider sx={{ backgroundColor: "textColor.dark" }} />
@@ -37,32 +38,55 @@ const Experience = () => {
   );
 };
 
-const ExperienceRow = () => (
+const ExperienceRow = ({ isSmallScreen, isLast = false }) => (
   <>
     <Box
       sx={{
         display: "flex",
         justifyContent: "space-evenly",
-        paddingTop: 10,
+        paddingTop: isSmallScreen ? 10 : 5,
         paddingBottom: 5,
+        flexDirection: "row",
       }}
     >
-      <Box width={"33%"}>
-        <Typography color={"textColor.light"}>2017-present</Typography>
-        <Typography sx={{ color: "secondary.main" }}>Youtube</Typography>
-      </Box>
-      <Box width={"33%"}>
-        <Typography fontWeight={"600"}>Senior UX/UI Designer</Typography>
-      </Box>
-      <Box width={"33%"}>
-        <Typography color={"textColor.light"}>
-          Loram delivers on the promise of truly targeted, agile and data-driven
-          solutions, offering unsurpassed efficiency, predictability and return
-          on your maintenance investment.
-        </Typography>
-      </Box>
+      {isSmallScreen ? (
+        <>
+          {" "}
+          <Box width={"33%"}>
+            <Typography color={"textColor.light"}>2017-present</Typography>
+            <Typography sx={{ color: "secondary.main" }}>Youtube</Typography>
+          </Box>
+          <Box width={"33%"}>
+            <Typography fontWeight={"600"}>Senior UX/UI Designer</Typography>
+          </Box>
+          <Box width={"33%"}>
+            <Typography color={"textColor.light"}>
+              Loram delivers on the promise of truly targeted, agile and
+              data-driven solutions, offering unsurpassed efficiency,
+              predictability and return on your maintenance investment.
+            </Typography>
+          </Box>
+        </>
+      ) : (
+        <>
+          <Box width={"50%"}>
+            <Typography color={"textColor.light"}>2017-present</Typography>
+            <Typography sx={{ color: "secondary.main" }}>Youtube</Typography>
+            <Typography fontWeight={"600"}>Senior UX/UI Designer</Typography>
+          </Box>
+          <Box width={"50%"}>
+            <Typography color={"textColor.light"}>
+              Loram delivers on the promise of truly targeted, agile and
+              data-driven solutions, offering unsurpassed efficiency,
+              predictability and return on your maintenance investment.
+            </Typography>
+          </Box>
+        </>
+      )}
     </Box>
-    <Divider sx={{ backgroundColor: "textColor.dark", width: "100%" }} />
+    {!isLast && (
+      <Divider sx={{ backgroundColor: "textColor.dark", width: "100%" }} />
+    )}
   </>
 );
 
