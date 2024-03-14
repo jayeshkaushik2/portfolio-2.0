@@ -5,10 +5,9 @@ const BaseLayout = ({ children, customStyle = {} }) => {
   return (
     <Box
       sx={{
-        backgroundColor: "primary.main",
+        backgroundColor: "transparent",
         height: "100%",
         width: "100%",
-        color: "white",
         ...customStyle,
       }}
     >

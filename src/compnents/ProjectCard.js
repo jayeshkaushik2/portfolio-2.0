@@ -1,15 +1,15 @@
-import { Box, Grid, Link, Typography } from "@mui/material";
+import { Box, CardMedia, Grid, Link, Typography } from "@mui/material";
 import React from "react";
 
-const JobCard = ({ job }) => {
+const ProjectCart = ({ project }) => {
   return (
     <Box
       sx={{
         backgroundColor: "secondary.main",
         minHeight: "17rem",
-        maxHeight: "17rem",
+        maxHeight: "33rem",
         minWidth: "24rem",
-        maxWidth: "20rem",
+        maxWidth: "28rem",
         borderRadius: "5%",
         boxShadow: "4px 4px 8px rgba(0, 0, 0, 0.1)",
         margin: 3,
@@ -20,6 +20,11 @@ const JobCard = ({ job }) => {
         },
       }}
     >
+      <CardMedia
+        sx={{ height: 300, borderRadius: "5%" }}
+        image="https://64.media.tumblr.com/de44e84b2898c6ec3fa3f00c729feb29/tumblr_o9s8b3kKwH1s13tcmo1_540.gif"
+        title="green iguana"
+      />
       <Box
         sx={{
           justifyContent: "center",
@@ -37,10 +42,10 @@ const JobCard = ({ job }) => {
           align="center"
           variant="h5"
         >
-          {job?.company}
+          {project?.name}
         </Typography>
 
-        <Typography
+        {/* <Typography
           sx={{
             color: "textSecondary.main",
           }}
@@ -48,8 +53,8 @@ const JobCard = ({ job }) => {
           align="center"
           variant="h6"
         >
-          {job?.job_title}
-        </Typography>
+          {project?.tools[0]}
+        </Typography> */}
 
         <Typography
           sx={{
@@ -58,7 +63,7 @@ const JobCard = ({ job }) => {
           m={1}
           align="center"
         >
-          {job?.description}{" "}
+          {project?.description}{" "}
           <Link
             variant="body2"
             sx={{
@@ -66,7 +71,7 @@ const JobCard = ({ job }) => {
             }}
             href="https://google.com"
           >
-            Learn More
+            View Details
           </Link>
         </Typography>
       </Box>
@@ -79,11 +84,12 @@ const JobCard = ({ job }) => {
           m={1}
           align="center"
         >
-          {job?.start_date} - {job?.is_present ? "Present" : job?.end_date}
+          {project?.start_date} -{" "}
+          {project?.is_present ? "Present" : project?.end_date}
         </Typography>
       </Box>
     </Box>
   );
 };
 
-export default JobCard;
+export default ProjectCart;
