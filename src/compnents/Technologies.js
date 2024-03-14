@@ -80,7 +80,7 @@ const Technologies = () => {
           <KeyboardArrowLeftIcon
             sx={{ fontSize: 40, color: "textColor.light" }}
           />
-          {currentCrosal?.map((company) => (
+          {currentCrosal?.map((technology, index) => (
             <Box
               sx={{
                 display: "flex",
@@ -88,11 +88,12 @@ const Technologies = () => {
                 flexDirection: "column",
                 alignItems: "center",
               }}
+              key={index}
             >
-              {company?.image ? (
+              {technology?.image ? (
                 <Avatar
-                  alt={company?.name}
-                  src={company?.image}
+                  alt={technology?.name}
+                  src={technology?.image}
                   sx={{
                     marginBottom: 1,
                     width: 100,
@@ -103,7 +104,7 @@ const Technologies = () => {
                 />
               ) : (
                 <Avatar
-                  alt={company?.name}
+                  alt={technology?.name}
                   sx={{
                     marginBottom: 1,
                     width: 100,
@@ -117,7 +118,7 @@ const Technologies = () => {
               )}
               {ShowText && (
                 <Typography sx={{ color: "textColor.light" }}>
-                  {company?.name}
+                  {technology?.name}
                 </Typography>
               )}
             </Box>

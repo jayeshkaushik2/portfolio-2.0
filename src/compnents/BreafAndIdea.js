@@ -143,8 +143,8 @@ const AboutMeAndSkills = ({ skills, valuetext, isSmallScreen }) => (
       services provider. Loram provides track maintenance services to freight,
       passenger, and transit railroads worldwide.
     </Typography>
-    {Object.keys(skills).map((skill) => (
-      <Box sx={{ width: "100%", paddingBottom: 1 }}>
+    {Object.keys(skills).map((skill, index) => (
+      <Box sx={{ width: "100%", paddingBottom: 1 }} key={index}>
         <Typography sx={{ fontWeight: 500 }}>{skill}</Typography>
         <Slider
           size="small"

@@ -5,9 +5,9 @@ const SpecializationSkills = ({ skills = [] }) => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container gap={5}>
-        {skills?.map((skill) => {
+        {skills?.map((skill, index) => {
           return (
-            <Grid xs={5}>
+            <Grid item xs={5} key={index}>
               <Typography
                 variant="h6"
                 color={"textColor.main"}

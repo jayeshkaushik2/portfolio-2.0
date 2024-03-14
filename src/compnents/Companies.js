@@ -73,7 +73,7 @@ const Companies = () => {
           <KeyboardArrowLeftIcon
             sx={{ fontSize: 40, color: "textColor.light" }}
           />
-          {currentCrosal?.map((company) => (
+          {currentCrosal?.map((company, index) => (
             <Box
               sx={{
                 display: "flex",
@@ -81,6 +81,7 @@ const Companies = () => {
                 flexDirection: "column",
                 alignItems: "center",
               }}
+              key={index}
             >
               {company?.image ? (
                 <Avatar

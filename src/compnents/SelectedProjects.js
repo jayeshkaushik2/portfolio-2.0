@@ -102,8 +102,8 @@ const SelectedProjectIntro = ({ isSmallScreen }) => (
 
 const ProjectUi = ({ selectedProjects, isSmallScreen }) => (
   <>
-    {selectedProjects.map((project) => (
-      <Grid item xs={2} sm={4} md={4} width={"100%"}>
+    {selectedProjects.map((project, index) => (
+      <Grid item xs={2} sm={4} md={4} width={"100%"} key={index}>
         <Box
           sx={{
             backgroundImage: `url(${project?.images[0].image})`,
