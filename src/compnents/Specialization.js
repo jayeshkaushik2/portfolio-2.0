@@ -48,7 +48,7 @@ const Specialization = () => {
         }
       >
         <Box
-          width={"100%"}
+          width={isSmallScreen ? "30%" : "100%"}
           paddingBottom={isSmallScreen ? 0 : 4}
           justifyContent={"center"}
         >

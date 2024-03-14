@@ -1,11 +1,19 @@
 import React from "react";
 import BaseLayout from "./layouts/BaseLayout";
 import CommentIcon from "@mui/icons-material/Comment";
-import { Avatar, Box, Divider, Stack, Typography } from "@mui/material";
+import {
+  Avatar,
+  Box,
+  Divider,
+  Stack,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import { RoundBtn } from "./RoundBtn";
 import CustomInput from "./CustomInput";
 
 const Contact = () => {
+  const isSmallScreen = !useMediaQuery("(max-width:600px)");
   return (
     <BaseLayout
       customStyle={{ backgroundColor: "primary.main", color: "white" }}
@@ -14,20 +22,20 @@ const Contact = () => {
         sx={{
           display: "flex",
           justifyContent: "space-between",
-          flexDirection: "row",
+          flexDirection: isSmallScreen ? "row" : "column",
         }}
-        padding={10}
+        padding={isSmallScreen ? 10 : 4}
       >
-        <ContactDetails />
-        <ContactForm />
+        <ContactDetails isSmallScreen={isSmallScreen} />
+        <ContactForm isSmallScreen={isSmallScreen} />
       </Stack>
       <Divider sx={{ backgroundColor: "textColor.dark" }} />
     </BaseLayout>
   );
 };
 
-const ContactDetails = () => (
-  <Box sx={{ width: "45%" }}>
+const ContactDetails = ({ isSmallScreen }) => (
+  <Box sx={{ width: isSmallScreen ? "45%" : "100%" }}>
     <Typography
       color={"textColor.main"}
       variant="h4"
@@ -68,10 +76,10 @@ const ContactDetails = () => (
   </Box>
 );
 
-const ContactForm = () => (
+const ContactForm = ({ isSmallScreen }) => (
   <Box
     sx={{
-      width: "45%",
+      width: isSmallScreen ? "45%" : "100%",
     }}
   >
     <Typography

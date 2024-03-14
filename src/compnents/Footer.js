@@ -1,6 +1,13 @@
 import React from "react";
 import BaseLayout from "./layouts/BaseLayout";
-import { Box, Divider, Link, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Divider,
+  Link,
+  Stack,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import CopyrightIcon from "@mui/icons-material/Copyright";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -16,6 +23,7 @@ const SocialLinks = [
 ];
 
 const Footer = () => {
+  const isSmallScreen = !useMediaQuery("(max-width:600px)");
   return (
     <BaseLayout
       customStyle={{ backgroundColor: "primary.main", color: "white" }}
@@ -28,7 +36,7 @@ const Footer = () => {
           justifyContent: "space-between",
           flexDirection: "row",
         }}
-        padding={10}
+        padding={isSmallScreen ? 10 : 4}
         paddingTop={4}
         paddingBottom={4}
       >

@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from "react";
 import BaseLayout from "./layouts/BaseLayout";
-import { Avatar, Box, Divider, Stack, Typography } from "@mui/material";
+import {
+  Avatar,
+  Box,
+  Divider,
+  Stack,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import BusinessIcon from "@mui/icons-material/Business";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
@@ -22,9 +29,13 @@ const technologiesData = [
 ];
 
 const Technologies = () => {
+  const isSmallScreen = !useMediaQuery("(max-width:600px)");
   const [currentCrosal, setCurrentCrosal] = useState([]);
   const [startingIdx, setStartingIdx] = useState(0);
-  const carouselRange = 5;
+  const [carouselRange, setCurrentCrosalRange] = useState(
+    isSmallScreen ? technologiesData?.length : 2
+  );
+
   const ShowText = true;
 
   setInterval(() => {
@@ -47,11 +58,15 @@ const Technologies = () => {
     setStartingIdx(nextStartingIdx);
   }, []);
 
+  useEffect(() => {
+    setCurrentCrosalRange(isSmallScreen ? technologiesData?.length : 2);
+  }, [isSmallScreen]);
+
   return (
     <BaseLayout
       customStyle={{ backgroundColor: "primary.main", color: "white" }}
     >
-      <Stack padding={10}>
+      <Stack padding={isSmallScreen ? 10 : 4}>
         <Box
           sx={{
             display: "flex",

@@ -1,9 +1,17 @@
 import React from "react";
 import BaseLayout from "./layouts/BaseLayout";
 import CommentIcon from "@mui/icons-material/Comment";
-import { Avatar, Box, Divider, Stack, Typography } from "@mui/material";
+import {
+  Avatar,
+  Box,
+  Divider,
+  Stack,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 
 const Testimonies = () => {
+  const isSmallScreen = !useMediaQuery("(max-width:600px)");
   return (
     <BaseLayout
       customStyle={{ backgroundColor: "primary.main", color: "white" }}
@@ -13,22 +21,26 @@ const Testimonies = () => {
           display: "flex",
           flex: 1,
           justifyContent: "space-between",
-          flexDirection: "row",
+          flexDirection: isSmallScreen ? "row" : "column",
         }}
-        padding={10}
+        padding={isSmallScreen ? 10 : 4}
       >
-        <TestimonialIntro />
-        <Testimoniales />
+        <TestimonialIntro isSmallScreen={isSmallScreen} />
+        <Testimoniales isSmallScreen={isSmallScreen} />
       </Stack>
       <Divider sx={{ backgroundColor: "textColor.dark" }} />
     </BaseLayout>
   );
 };
 
-const TestimonialIntro = () => (
-  <Box sx={{ width: "45%" }}>
+const TestimonialIntro = ({ isSmallScreen }) => (
+  <Box sx={{ width: isSmallScreen ? "45%" : "100%" }}>
     <CommentIcon
-      sx={{ color: "secondary.main", fontSize: 90, paddingBottom: 4 }}
+      sx={{
+        color: "secondary.main",
+        fontSize: 90,
+        paddingBottom: isSmallScreen ? 4 : 0,
+      }}
     />
     <Typography
       color={"textColor.main"}
@@ -41,8 +53,13 @@ const TestimonialIntro = () => (
   </Box>
 );
 
-const Testimoniales = () => (
-  <Box sx={{ width: "45%" }}>
+const Testimoniales = ({ isSmallScreen }) => (
+  <Box
+    sx={{
+      width: isSmallScreen ? "45%" : "100%",
+      paddingTop: isSmallScreen ? 0 : 4,
+    }}
+  >
     <Typography sx={{ paddingBottom: 4, color: "textColor.light" }}>
       Loram Maintenance of Way, Inc. is a railroad maintenance equipment and
       services provider. Loram provides track maintenance services to freight,

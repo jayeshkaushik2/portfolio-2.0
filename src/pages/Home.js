@@ -3,7 +3,7 @@ import BaseLayout from "../compnents/layouts/BaseLayout";
 import Header from "../compnents/Header";
 import Jobs from "./Jobs";
 import Projects from "./projects";
-import { Divider } from "@mui/material";
+import { Divider, Typography } from "@mui/material";
 import Educations from "./Educations";
 import IntroHeader from "../compnents/IntroHeader";
 import Specialization from "../compnents/Specialization";
@@ -29,11 +29,6 @@ const Home = () => {
       <Technologies />
       <Contact />
       <Footer />
-      {/* <Header /> */}
-      {/* <Jobs />
-      <Divider />
-      <Projects />
-      <Educations /> */}
     </BaseLayout>
   );
 };
