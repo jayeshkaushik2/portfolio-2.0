@@ -8,7 +8,7 @@ import { RoundBtn } from "./RoundBtn";
 import PlayArrowRoundedIcon from "@mui/icons-material/PlayArrowRounded";
 
 const IntroHeader = () => {
-  const isSmallScreen = !useMediaQuery("(max-width:600px)");
+  const isLargeScreen = !useMediaQuery("(max-width:600px)");
 
   return (
     <BaseLayout customStyle={{ color: "white" }}>
@@ -20,7 +20,7 @@ const IntroHeader = () => {
         <Navigation />
         <Stack
           sx={
-            isSmallScreen
+            isLargeScreen
               ? {
                   flexDirection: "row",
                   padding: 3,
@@ -60,7 +60,7 @@ const IntroHeader = () => {
             <img
               src={`${ProfileImage}`}
               style={
-                isSmallScreen
+                isLargeScreen
                   ? { minHeight: 100, maxHeight: 600 }
                   : { width: "-webkit-fill-available" }
               }

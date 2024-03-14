@@ -4,12 +4,12 @@ import { Box, Divider, Stack, Typography, useMediaQuery } from "@mui/material";
 import { RoundBtn } from "./RoundBtn";
 
 const Experience = () => {
-  const isSmallScreen = !useMediaQuery("(max-width:600px)");
+  const isLargeScreen = !useMediaQuery("(max-width:600px)");
   return (
     <BaseLayout
       customStyle={{ backgroundColor: "primary.main", color: "white" }}
     >
-      <Stack padding={isSmallScreen ? 10 : 4}>
+      <Stack padding={isLargeScreen ? 10 : 4}>
         <Box
           sx={{
             width: "100%",
@@ -28,9 +28,9 @@ const Experience = () => {
             AlignIcon="left"
             sx={{ marginTop: 4 }}
           />
-          <ExperienceRow isSmallScreen={isSmallScreen} />
-          <ExperienceRow isSmallScreen={isSmallScreen} />
-          <ExperienceRow isSmallScreen={isSmallScreen} isLast={true} />
+          <ExperienceRow isLargeScreen={isLargeScreen} />
+          <ExperienceRow isLargeScreen={isLargeScreen} />
+          <ExperienceRow isLargeScreen={isLargeScreen} isLast={true} />
         </Box>
       </Stack>
       <Divider sx={{ backgroundColor: "textColor.dark" }} />
@@ -38,18 +38,18 @@ const Experience = () => {
   );
 };
 
-const ExperienceRow = ({ isSmallScreen, isLast = false }) => (
+const ExperienceRow = ({ isLargeScreen, isLast = false }) => (
   <>
     <Box
       sx={{
         display: "flex",
         justifyContent: "space-evenly",
-        paddingTop: isSmallScreen ? 10 : 5,
+        paddingTop: isLargeScreen ? 10 : 5,
         paddingBottom: 5,
         flexDirection: "row",
       }}
     >
-      {isSmallScreen ? (
+      {isLargeScreen ? (
         <>
           {" "}
           <Box width={"33%"}>

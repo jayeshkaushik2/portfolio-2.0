@@ -4,7 +4,7 @@ import { Box, Divider, Stack, Typography, useMediaQuery } from "@mui/material";
 import SpecializationSkills from "./SpecializationSkills";
 
 const Specialization = () => {
-  const isSmallScreen = !useMediaQuery("(max-width:600px)");
+  const isLargeScreen = !useMediaQuery("(max-width:600px)");
   let specializationSkillsData = [
     {
       id: 1,
@@ -37,9 +37,9 @@ const Specialization = () => {
       customStyle={{ backgroundColor: "primary.main", color: "white" }}
     >
       <Stack
-        padding={isSmallScreen ? 10 : 4}
+        padding={isLargeScreen ? 10 : 4}
         sx={
-          isSmallScreen
+          isLargeScreen
             ? { display: "flex", flexDirection: "row" }
             : {
                 display: "flex",
@@ -48,8 +48,8 @@ const Specialization = () => {
         }
       >
         <Box
-          width={isSmallScreen ? "30%" : "100%"}
-          paddingBottom={isSmallScreen ? 0 : 4}
+          width={isLargeScreen ? "30%" : "100%"}
+          paddingBottom={isLargeScreen ? 0 : 4}
           justifyContent={"center"}
         >
           <Box>
@@ -85,7 +85,7 @@ const Specialization = () => {
             </Typography>
           </Box>
         </Box>
-        <Box width={isSmallScreen ? "70%" : "100%"}>
+        <Box width={isLargeScreen ? "70%" : "100%"}>
           <Skills specializationSkillsData={specializationSkillsData} />
         </Box>
       </Stack>

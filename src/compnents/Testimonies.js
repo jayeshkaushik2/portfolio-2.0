@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 
 const Testimonies = () => {
-  const isSmallScreen = !useMediaQuery("(max-width:600px)");
+  const isLargeScreen = !useMediaQuery("(max-width:600px)");
   return (
     <BaseLayout
       customStyle={{ backgroundColor: "primary.main", color: "white" }}
@@ -21,25 +21,25 @@ const Testimonies = () => {
           display: "flex",
           flex: 1,
           justifyContent: "space-between",
-          flexDirection: isSmallScreen ? "row" : "column",
+          flexDirection: isLargeScreen ? "row" : "column",
         }}
-        padding={isSmallScreen ? 10 : 4}
+        padding={isLargeScreen ? 10 : 4}
       >
-        <TestimonialIntro isSmallScreen={isSmallScreen} />
-        <Testimoniales isSmallScreen={isSmallScreen} />
+        <TestimonialIntro isLargeScreen={isLargeScreen} />
+        <Testimoniales isLargeScreen={isLargeScreen} />
       </Stack>
       <Divider sx={{ backgroundColor: "textColor.dark" }} />
     </BaseLayout>
   );
 };
 
-const TestimonialIntro = ({ isSmallScreen }) => (
-  <Box sx={{ width: isSmallScreen ? "45%" : "100%" }}>
+const TestimonialIntro = ({ isLargeScreen }) => (
+  <Box sx={{ width: isLargeScreen ? "45%" : "100%" }}>
     <CommentIcon
       sx={{
         color: "secondary.main",
         fontSize: 90,
-        paddingBottom: isSmallScreen ? 4 : 0,
+        paddingBottom: isLargeScreen ? 4 : 0,
       }}
     />
     <Typography
@@ -53,11 +53,11 @@ const TestimonialIntro = ({ isSmallScreen }) => (
   </Box>
 );
 
-const Testimoniales = ({ isSmallScreen }) => (
+const Testimoniales = ({ isLargeScreen }) => (
   <Box
     sx={{
-      width: isSmallScreen ? "45%" : "100%",
-      paddingTop: isSmallScreen ? 0 : 4,
+      width: isLargeScreen ? "45%" : "100%",
+      paddingTop: isLargeScreen ? 0 : 4,
     }}
   >
     <Typography sx={{ paddingBottom: 4, color: "textColor.light" }}>

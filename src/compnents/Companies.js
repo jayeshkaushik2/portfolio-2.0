@@ -24,11 +24,11 @@ const companiesData = [
 ];
 
 const Companies = () => {
-  const isSmallScreen = !useMediaQuery("(max-width:600px)");
+  const isLargeScreen = !useMediaQuery("(max-width:600px)");
   const [currentCrosal, setCurrentCrosal] = useState([]);
   const [startingIdx, setStartingIdx] = useState(0);
   const [carouselRange, setCurrentCrosalRange] = useState(
-    isSmallScreen ? companiesData?.length : 2
+    isLargeScreen ? companiesData?.length : 2
   );
   const ShowText = true;
 
@@ -53,14 +53,14 @@ const Companies = () => {
   }, []);
 
   useEffect(() => {
-    setCurrentCrosalRange(isSmallScreen ? companiesData?.length : 2);
-  }, [isSmallScreen]);
+    setCurrentCrosalRange(isLargeScreen ? companiesData?.length : 2);
+  }, [isLargeScreen]);
 
   return (
     <BaseLayout
       customStyle={{ backgroundColor: "primary.main", color: "white" }}
     >
-      <Stack padding={isSmallScreen ? 10 : 4}>
+      <Stack padding={isLargeScreen ? 10 : 4}>
         <Box
           sx={{
             display: "flex",

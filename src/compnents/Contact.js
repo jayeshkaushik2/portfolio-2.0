@@ -13,7 +13,7 @@ import { RoundBtn } from "./RoundBtn";
 import CustomInput from "./CustomInput";
 
 const Contact = () => {
-  const isSmallScreen = !useMediaQuery("(max-width:600px)");
+  const isLargeScreen = !useMediaQuery("(max-width:600px)");
   return (
     <BaseLayout
       customStyle={{ backgroundColor: "primary.main", color: "white" }}
@@ -22,20 +22,20 @@ const Contact = () => {
         sx={{
           display: "flex",
           justifyContent: "space-between",
-          flexDirection: isSmallScreen ? "row" : "column",
+          flexDirection: isLargeScreen ? "row" : "column",
         }}
-        padding={isSmallScreen ? 10 : 4}
+        padding={isLargeScreen ? 10 : 4}
       >
-        <ContactDetails isSmallScreen={isSmallScreen} />
-        <ContactForm isSmallScreen={isSmallScreen} />
+        <ContactDetails isLargeScreen={isLargeScreen} />
+        <ContactForm isLargeScreen={isLargeScreen} />
       </Stack>
       <Divider sx={{ backgroundColor: "textColor.dark" }} />
     </BaseLayout>
   );
 };
 
-const ContactDetails = ({ isSmallScreen }) => (
-  <Box sx={{ width: isSmallScreen ? "45%" : "100%" }}>
+const ContactDetails = ({ isLargeScreen }) => (
+  <Box sx={{ width: isLargeScreen ? "45%" : "100%" }}>
     <Typography
       color={"textColor.main"}
       variant="h4"
@@ -76,10 +76,10 @@ const ContactDetails = ({ isSmallScreen }) => (
   </Box>
 );
 
-const ContactForm = ({ isSmallScreen }) => (
+const ContactForm = ({ isLargeScreen }) => (
   <Box
     sx={{
-      width: isSmallScreen ? "45%" : "100%",
+      width: isLargeScreen ? "45%" : "100%",
     }}
   >
     <Typography

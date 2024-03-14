@@ -52,19 +52,19 @@ let selectedProjects = [
 ];
 
 const SelectedProjects = () => {
-  const isSmallScreen = !useMediaQuery("(max-width:600px)");
+  const isLargeScreen = !useMediaQuery("(max-width:600px)");
   return (
     <BaseLayout
       customStyle={{ backgroundColor: "primary.main", color: "white" }}
     >
-      <Stack padding={isSmallScreen ? 10 : 4}>
+      <Stack padding={isLargeScreen ? 10 : 4}>
         <Grid container spacing={{ xs: 4, md: 4 }} columns={{ md: 12 }}>
           <Grid item xs={2} sm={4} md={4} key={1}>
-            <SelectedProjectIntro isSmallScreen={isSmallScreen} />
+            <SelectedProjectIntro isLargeScreen={isLargeScreen} />
           </Grid>
           <ProjectUi
             selectedProjects={selectedProjects}
-            isSmallScreen={isSmallScreen}
+            isLargeScreen={isLargeScreen}
           />
         </Grid>
       </Stack>
@@ -73,7 +73,7 @@ const SelectedProjects = () => {
   );
 };
 
-const SelectedProjectIntro = ({ isSmallScreen }) => (
+const SelectedProjectIntro = ({ isLargeScreen }) => (
   <>
     <Typography color={"textColor.light"} sx={{ paddingBottom: 1 }}>
       Portfolio
@@ -100,7 +100,7 @@ const SelectedProjectIntro = ({ isSmallScreen }) => (
   </>
 );
 
-const ProjectUi = ({ selectedProjects, isSmallScreen }) => (
+const ProjectUi = ({ selectedProjects, isLargeScreen }) => (
   <>
     {selectedProjects.map((project, index) => (
       <Grid item xs={2} sm={4} md={4} width={"100%"} key={index}>

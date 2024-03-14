@@ -29,11 +29,11 @@ const technologiesData = [
 ];
 
 const Technologies = () => {
-  const isSmallScreen = !useMediaQuery("(max-width:600px)");
+  const isLargeScreen = !useMediaQuery("(max-width:600px)");
   const [currentCrosal, setCurrentCrosal] = useState([]);
   const [startingIdx, setStartingIdx] = useState(0);
   const [carouselRange, setCurrentCrosalRange] = useState(
-    isSmallScreen ? technologiesData?.length : 2
+    isLargeScreen ? technologiesData?.length : 2
   );
 
   const ShowText = true;
@@ -59,14 +59,14 @@ const Technologies = () => {
   }, []);
 
   useEffect(() => {
-    setCurrentCrosalRange(isSmallScreen ? technologiesData?.length : 2);
-  }, [isSmallScreen]);
+    setCurrentCrosalRange(isLargeScreen ? technologiesData?.length : 2);
+  }, [isLargeScreen]);
 
   return (
     <BaseLayout
       customStyle={{ backgroundColor: "primary.main", color: "white" }}
     >
-      <Stack padding={isSmallScreen ? 10 : 4}>
+      <Stack padding={isLargeScreen ? 10 : 4}>
         <Box
           sx={{
             display: "flex",

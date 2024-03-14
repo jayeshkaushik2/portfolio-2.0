@@ -28,7 +28,7 @@ const data = {
 };
 
 const BreafAndIdea = () => {
-  const isSmallScreen = !useMediaQuery("(max-width:600px)");
+  const isLargeScreen = !useMediaQuery("(max-width:600px)");
   function valuetext(value) {
     return `${value}%`;
   }
@@ -37,18 +37,18 @@ const BreafAndIdea = () => {
       customStyle={{ backgroundColor: "primary.main", color: "white" }}
     >
       <Stack
-        padding={isSmallScreen ? 10 : 4}
+        padding={isLargeScreen ? 10 : 4}
         sx={{
           display: "flex",
-          flexDirection: isSmallScreen ? "row" : "column",
+          flexDirection: isLargeScreen ? "row" : "column",
           justifyContent: "space-between",
         }}
       >
-        <BreafAndIdeaComp isSmallScreen={isSmallScreen} />
+        <BreafAndIdeaComp isLargeScreen={isLargeScreen} />
         <AboutMeAndSkills
           skills={data?.skills}
           valuetext={valuetext}
-          isSmallScreen={isSmallScreen}
+          isLargeScreen={isLargeScreen}
         />
       </Stack>
       <Divider sx={{ backgroundColor: "textColor.dark" }} />
@@ -56,13 +56,13 @@ const BreafAndIdea = () => {
   );
 };
 
-const BreafAndIdeaComp = ({ isSmallScreen }) => (
-  <Box width={isSmallScreen ? "45%" : "100%"}>
+const BreafAndIdeaComp = ({ isLargeScreen }) => (
+  <Box width={isLargeScreen ? "45%" : "100%"}>
     <Typography
       color={"textColor.main"}
       variant="h4"
       fontWeight={"600"}
-      paddingBottom={isSmallScreen ? 4 : 1}
+      paddingBottom={isLargeScreen ? 4 : 1}
     >
       Breaf & Idea
     </Typography>
@@ -73,7 +73,7 @@ const BreafAndIdeaComp = ({ isSmallScreen }) => (
     </Typography>
     <Box
       sx={
-        isSmallScreen
+        isLargeScreen
           ? {}
           : {
               display: "flex",
@@ -88,7 +88,7 @@ const BreafAndIdeaComp = ({ isSmallScreen }) => (
         sx={{
           display: "flex",
           alignItems: "center",
-          width: isSmallScreen ? "35%" : "fit-content",
+          width: isLargeScreen ? "35%" : "fit-content",
           justifyContent: "space-between",
         }}
       >
@@ -108,7 +108,7 @@ const BreafAndIdeaComp = ({ isSmallScreen }) => (
         sx={{
           display: "flex",
           alignItems: "center",
-          width: isSmallScreen ? "35%" : "fit-content",
+          width: isLargeScreen ? "35%" : "fit-content",
           justifyContent: "space-between",
         }}
       >
@@ -128,17 +128,17 @@ const BreafAndIdeaComp = ({ isSmallScreen }) => (
   </Box>
 );
 
-const AboutMeAndSkills = ({ skills, valuetext, isSmallScreen }) => (
-  <Box width={isSmallScreen ? "45%" : "100%"}>
+const AboutMeAndSkills = ({ skills, valuetext, isLargeScreen }) => (
+  <Box width={isLargeScreen ? "45%" : "100%"}>
     <Typography
       color={"textColor.main"}
       variant="h4"
       fontWeight={"600"}
-      paddingBottom={isSmallScreen ? 4 : 1}
+      paddingBottom={isLargeScreen ? 4 : 1}
     >
       I'm Using Top Leading Methods In my Work.
     </Typography>
-    <Typography color={"textColor.light"} paddingBottom={isSmallScreen ? 4 : 1}>
+    <Typography color={"textColor.light"} paddingBottom={isLargeScreen ? 4 : 1}>
       Loram Maintenance of Way, Inc. is a railroad maintenance equipment and
       services provider. Loram provides track maintenance services to freight,
       passenger, and transit railroads worldwide.

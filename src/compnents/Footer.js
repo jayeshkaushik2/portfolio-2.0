@@ -23,7 +23,7 @@ const SocialLinks = [
 ];
 
 const Footer = () => {
-  const isSmallScreen = !useMediaQuery("(max-width:600px)");
+  const isLargeScreen = !useMediaQuery("(max-width:600px)");
   return (
     <BaseLayout
       customStyle={{ backgroundColor: "primary.main", color: "white" }}
@@ -36,7 +36,7 @@ const Footer = () => {
           justifyContent: "space-between",
           flexDirection: "row",
         }}
-        padding={isSmallScreen ? 10 : 4}
+        padding={isLargeScreen ? 10 : 4}
         paddingTop={4}
         paddingBottom={4}
       >
